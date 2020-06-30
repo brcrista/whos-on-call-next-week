@@ -1,5 +1,5 @@
 name: 'assign-oncall-prep-issue'
-description: ''
+description: "GitHub Action that assigns an issue to next week's oncall engineers"
 author: 'Brian Cristante'
 # inputs:
 runs:
