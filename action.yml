@@ -1,0 +1,7 @@
+name: 'assign-oncall-prep-issue'
+description: ''
+author: 'Brian Cristante'
+# inputs:
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
