@@ -2,6 +2,9 @@ name: 'whos-on-call-next-week'
 description: "GitHub Action to look up who's on call next week"
 author: 'Brian Cristante'
 inputs:
+  scheduleId:
+    description: 'The PagerDuty schedule ID (not the name!) of the schedule to retrieve'
+    required: true
   pagerDutyToken:
     description: 'A PagerDuty user API key (protip: store as a secret)'
     required: true

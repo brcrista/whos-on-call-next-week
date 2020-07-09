@@ -14,6 +14,9 @@ jobs:
     - run: npm install
     - run: npm run pack
     - run: npm run test
+      env:
+        PAGERDUTY_API_KEY: ${{ secrets.PAGERDUTY_API_KEY }}
+        PAGERDUTY_SCHEDULE_ID: PVHAB95
 
   run:
     runs-on: ubuntu-latest

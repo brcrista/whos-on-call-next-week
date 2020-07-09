@@ -9,5 +9,16 @@ GitHub Action to look up who's on call next week.
 ```yml
 - uses: github/whos-on-call-next-week@dev
   with:
+    scheduleId: PVHAB95 # actions-service-oncall-primary
     pagerDutyToken: ${{ secrets.PAGERDUTY_API_TOKEN }}
+```
+
+## Contributing
+
+### Running tests
+
+```bash
+export PAGERDUTY_API_KEY="your PagerDuty API key"
+export PAGERDUTY_SCHEDULE_ID="your PagerDuty schedule ID"
+npm run test
 ```
