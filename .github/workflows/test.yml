@@ -23,4 +23,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: ./
-      # with:
+      with:
+        scheduleId: PVHAB95
+        pagerDutyToken: ${{ secrets.PAGERDUTY_API_KEY }}

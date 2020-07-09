@@ -3,6 +3,14 @@ const _ = require('lodash');
 const pdClient = require('node-pagerduty');
 
 async function run(inputs) {
+    if (!inputs.scheduleId) {
+        throw new Error("The `scheduleId` input must be set.")
+    }
+
+    if (!inputs.pagerDutyToken) {
+        throw new Error("The `pagerDutyToken` input must be set.")
+    }
+
     const pd = new pdClient(inputs.pagerDutyToken);
     const scheduleResponse = await pd.schedules.getSchedule(
         inputs.scheduleId,
