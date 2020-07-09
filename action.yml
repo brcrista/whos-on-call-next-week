@@ -1,7 +1,13 @@
-name: 'assign-oncall-prep-issue'
-description: "GitHub Action that assigns an issue to next week's oncall engineers"
+name: 'whos-on-call-next-week'
+description: "GitHub Action to look up who's on call next week"
 author: 'Brian Cristante'
-# inputs:
+inputs:
+  pagerDutyToken:
+    description: 'A PagerDuty user API key (protip: store as a secret)'
+    required: true
+outputs:
+  oncallNextWeek:
+    description: "Comma-separated list of GitHub handles for who's on call next week"
 runs:
   using: 'node12'
   main: 'dist/index.js'

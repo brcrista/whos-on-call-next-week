@@ -1,5 +1,5 @@
 {
-  "name": "assign-oncall-prep-issue",
+  "name": "whos-on-call-next-week",
   "version": "0.0.0",
   "private": true,
   "description": "GitHub Action that assigns an issue to next week's oncall engineers",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github/assign-oncall-prep-issue.git"
+    "url": "git+https://github.com/github/whos-on-call-next-week.git"
   },
   "keywords": [
     "actions",
@@ -22,7 +22,9 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@actions/github": "^2.2.0"
+    "@actions/github": "^2.2.0",
+    "lodash": "^4.17.19",
+    "node-pagerduty": "git+https://github.com/kmart2234/node-pagerduty.git"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
