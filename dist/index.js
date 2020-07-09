@@ -34,7 +34,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(198);
+/******/ 		return __webpack_require__(31);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -43,50 +43,32 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ 31:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+const core = __webpack_require__(470);
+
+const whosOnCallNextWeek = __webpack_require__(955);
+
+async function main() {
+    try {
+        await whosOnCallNextWeek.run({
+        });
+    } catch (error) {
+        core.setFailed(error.message);
+    }
+}
+
+module.exports.main = main;
+
+main().catch(console.error);
+
+/***/ }),
+
 /***/ 87:
 /***/ (function(module) {
 
 module.exports = require("os");
-
-/***/ }),
-
-/***/ 198:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core = __importStar(__webpack_require__(470));
-const assignOncallPrepIssue = __importStar(__webpack_require__(624));
-async function main() {
-    try {
-        await assignOncallPrepIssue.run({});
-    }
-    catch (error) {
-        core.setFailed(error.message);
-    }
-}
-main().catch(err => console.error(err));
-
 
 /***/ }),
 
@@ -425,18 +407,14 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 624:
-/***/ (function(__unusedmodule, exports) {
+/***/ 955:
+/***/ (function(module) {
 
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.run = void 0;
 async function run(inputs) {
     console.log('Done!');
 }
-exports.run = run;
 
+module.exports.run = run;
 
 /***/ })
 
