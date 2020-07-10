@@ -8,9 +8,15 @@ GitHub Action to look up who's on call next week.
 
 ```yml
 - uses: brcrista/whos-on-call-next-week@dev
+  id: oncallSchedule
   with:
-    scheduleId: PVHAB95 # actions-service-oncall-primary
-    pagerDutyToken: ${{ secrets.PAGERDUTY_API_TOKEN }}
+    scheduleId: PVHAB95
+    pagerDutyToken: ${{ secrets.PAGERDUTY_API_KEY }}
+
+# Check that the output parameter has been set.
+- run: echo $ONCALLNEXTWEEK
+  env:
+    ONCALLNEXTWEEK: ${{ steps.oncallSchedule.outputs.oncallNextWeek }}
 ```
 
 ## Contributing
