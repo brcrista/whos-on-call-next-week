@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github/whos-on-call-next-week.git"
+    "url": "git+https://github.com/brcrista/whos-on-call-next-week.git"
   },
   "keywords": [
     "actions",
