@@ -51474,10 +51474,26 @@ async function run(inputs) {
 
     const schedule = JSON.parse(scheduleResponse.body).schedule;
     const finalSchedule = schedule.final_schedule;
-    const scheduledUsers = _.uniqBy(finalSchedule.rendered_schedule_entries, x => x.user.id);
+    const scheduledUserIds = _.uniq(finalSchedule.rendered_schedule_entries.map(x => x.user.id));
+    const scheduledUserResponses = await Promise.all(scheduledUserIds.map(pd.users.getUser));
+    const scheduledUserEmailAddresses = scheduledUserResponses.map(response => JSON.parse(response.body).user.email);
 
-    console.log("Scheduled users:");
-    console.log(JSON.stringify(scheduledUsers));
+    // All users in GitHub's PagerDuty account should have a `@github.com` email address.
+    // Trust, but verify.
+    const [githubEmails, otherEmails] = _.partition(scheduledUserEmailAddresses, x => x.endsWith('@github.com'));
+    if (otherEmails.length > 0) {
+        [
+            '[WARNING]: some PagerDuty users on the schedule do not have a @github.com email address in PagerDuty.',
+            'These users will not be returned from this action because their GitHub handle cannot be determined:',
+            ...otherEmails
+        ].map(_.unary(console.error));
+    }
+
+    const githubHandles = githubEmails.map(x => x.split('@')[0]);
+    [
+        "Scheduled users:",
+        ...githubHandles
+    ].map(_.unary(console.log));
 }
 
 module.exports.run = run;
