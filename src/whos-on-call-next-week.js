@@ -12,12 +12,16 @@ async function run(inputs) {
     }
 
     const pd = new pdClient(inputs.pagerDutyToken);
+
+    const oneWeekFromNow = new Date();
+    oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+
     const scheduleResponse = await pd.schedules.getSchedule(
         inputs.scheduleId,
         {
             time_zone: 'UTC',
-            since: new Date('2020-07-06'),
-            until: new Date('2020-07-13')
+            since: oneWeekFromNow,
+            until: oneWeekFromNow
         });
 
     const schedule = JSON.parse(scheduleResponse.body).schedule;
