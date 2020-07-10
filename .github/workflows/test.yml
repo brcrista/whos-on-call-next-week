@@ -23,6 +23,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: ./
+      id: oncallSchedule
       with:
         scheduleId: PVHAB95
         pagerDutyToken: ${{ secrets.PAGERDUTY_API_KEY }}
+    # Check that the output parameter has been set.
+    - run: echo $ONCALLNEXTWEEK
+      env:
+        ONCALLNEXTWEEK: ${{ steps.oncallSchedule.outputs.oncallNextWeek }}
