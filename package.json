@@ -19,7 +19,7 @@
   "author": "Brian Cristante",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.4",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^2.2.0",
     "lodash": "^4.17.19",
     "node-pagerduty": "git+https://github.com/kmart2234/node-pagerduty.git"
