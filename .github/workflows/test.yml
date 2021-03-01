@@ -25,7 +25,7 @@ jobs:
     - uses: ./
       id: oncallSchedule
       with:
-        scheduleId: PVHAB95
+        scheduleId: PDX35YB
         pagerDutyToken: ${{ secrets.PAGERDUTY_API_KEY }}
     # Check that the output parameter has been set.
     - run: echo $ONCALLNEXTWEEK
