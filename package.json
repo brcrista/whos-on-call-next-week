@@ -21,7 +21,7 @@
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^2.2.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "node-pagerduty": "git+https://github.com/kmart2234/node-pagerduty.git"
   },
   "devDependencies": {
