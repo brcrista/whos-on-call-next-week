@@ -4,6 +4,8 @@
 
 GitHub Action to look up who's on call next week.
 
+**Note:** I am no longer maintaining this.  Please fork it if you would like to make changes.
+
 ## Example
 
 ```yml
